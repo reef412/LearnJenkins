@@ -1,19 +1,20 @@
-pipeline {
+pipeline { 
     agent any 
     stages {
         stage('Build') { 
-            steps {
-                // 
+            steps { 
+                sh 'make' 
             }
         }
-        stage('Test') { 
+        stage('Test'){
             steps {
-                // 
+                sh 'make check'
+                junit 'reports/**/*.xml' 
             }
         }
-        stage('Deploy') { 
+        stage('Deploy') {
             steps {
-                // 
+                sh 'make publish'
             }
         }
     }
