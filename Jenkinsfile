@@ -1,19 +1,19 @@
-pipeline { 
+pipeline {
     agent any 
     stages {
         stage('Build') { 
-            steps { 
-                sh 'make' 
+            steps {
+                // 
             }
         }
-        stage('Test'){
+        stage('Test') { 
             steps {
-                sh 'make check'
+                // 
             }
         }
-        stage('Deploy') {
+        stage('Deploy') { 
             steps {
-                sh 'make publish'
+                // 
             }
         }
     }
