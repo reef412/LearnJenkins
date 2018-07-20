@@ -1,10 +1,20 @@
-Jenkinsfile (Declarative Pipeline)
-pipeline {
-    agent { docker { image 'python:3.5.1' } }
+pipeline { 
+    agent any 
     stages {
-        stage('build') {
+        stage('Build') { 
+            steps { 
+                sh 'make' 
+            }
+        }
+        stage('Test'){
             steps {
-                sh 'python --version'
+                sh 'make check'
+                junit 'reports/**/*.xml' 
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'make publish'
             }
         }
     }
