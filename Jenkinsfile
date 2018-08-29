@@ -1,20 +1,24 @@
-pipeline { 
-    agent any 
+pipeline {
+    agent any
     stages {
-        stage('Build') { 
-            steps { 
-                sh 'make' 
+        stage('Setup') {
+            steps {
+                echo "Building and Installing Sandman"
             }
         }
-        stage('Test'){
+        stage('Independent Tests') {
             steps {
-                sh 'make check'
-                junit 'reports/**/*.xml' 
+                echo "Running Unit and Integration Tests"
             }
         }
         stage('Deploy') {
             steps {
-                sh 'make publish'
+                echo "Starting Sandman"
+            }
+        }
+        stage('Dependent Integratinon Tests') {
+            steps {
+                echo "Running Dependent Integration Tests"
             }
         }
     }
