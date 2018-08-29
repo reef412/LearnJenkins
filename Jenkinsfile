@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Dependent Integratinon Tests') {
             steps {
-                echo "Running Dependent Integration Test"
+                echo "Running Dependent Integration Tests"
             }
         }
     }
