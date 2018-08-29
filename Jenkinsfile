@@ -25,7 +25,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts 'test/*.txt'
+            archiveArtifacts artifacts: 'test/*.txt', fingerprint: true
         }
     }
 }
