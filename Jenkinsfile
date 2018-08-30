@@ -30,7 +30,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'test/*.jar', fingerprint: true
+            archiveArtifacts artifacts: 'test/*.txt', fingerprint: true
         }
     }
 }
